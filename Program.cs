@@ -1,18 +1,11 @@
-﻿Console.Write("Informe a primeira pontuação: ");
-int a = int.Parse(Console.ReadLine());
+﻿Console.Write("Informe um número inteiro: ");
+int numero = int.Parse(Console.ReadLine());
 
-Console.Write("Informe a segunda pontuação: ");
-int b = int.Parse(Console.ReadLine());
-
-Console.Write("Informe a terceira pontuação: ");
-int c = int.Parse(Console.ReadLine());
-
-if (a == b && b == c)
+if (numero % 2 == 0)
 {
-    Console.WriteLine("As três pontuações são iguais.");
+    Console.WriteLine("O número informado é par.");
 }
 else
 {
-    int maior = Math.Max(a, Math.Max(b, c));
-    Console.WriteLine($"Maior pontuação: {maior}");
+    Console.WriteLine("O número informado é ímpar.");
 }
