@@ -1,42 +1,32 @@
-﻿Console.Write("Informe a quantidade inicial em estoque: ");
-int estoque = int.Parse(Console.ReadLine());
+﻿using System;
 
-int opcao;
-
-do
+class Program
 {
-    Console.Write("Escolha a operação: ");
-    opcao = int.Parse(Console.ReadLine());
-
-    if (opcao == 1)
+    static void Main()
     {
-        Console.Write("Informe a quantidade movimentada: ");
-        int quantidade = int.Parse(Console.ReadLine());
+        Console.Write("Digite o valor de a: ");
+        double a = Convert.ToDouble(Console.ReadLine());
 
-        estoque += quantidade;
+        Console.Write("Digite o valor de b: ");
+        double b = Convert.ToDouble(Console.ReadLine());
 
-        Console.WriteLine($"Entrada registrada. Estoque atual: {estoque}");
-    }
-    else if (opcao == 2)
-    {
-        Console.Write("Informe a quantidade movimentada: ");
-        int quantidade = int.Parse(Console.ReadLine());
+        Console.Write("Digite o valor de c: ");
+        double c = Convert.ToDouble(Console.ReadLine());
 
-        if (quantidade <= estoque)
+        double delta = (b * b) - (4 * a * c);
+
+        if (delta < 0)
         {
-            estoque -= quantidade;
-            Console.WriteLine($"Saída registrada. Estoque atual: {estoque}");
+            Console.WriteLine("Não existem raízes reais.");
         }
         else
         {
-            Console.WriteLine("Quantidade insuficiente em estoque.");
+            double x1 = (-b + Math.Sqrt(delta)) / (2 * a);
+            double x2 = (-b - Math.Sqrt(delta)) / (2 * a);
+
+            Console.WriteLine($"Delta = {delta}");
+            Console.WriteLine($"x1 = {x1}");
+            Console.WriteLine($"x2 = {x2}");
         }
     }
-    else if (opcao == 3)
-    {
-        Console.WriteLine($"Estoque atual: {estoque}");
-    }
-
-} while (opcao != 4);
-
-Console.WriteLine($"Estoque final: {estoque}");
+}
